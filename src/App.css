@@ -1,0 +1,38 @@
+.app-wrapper {
+  padding: 4vh 8vw;
+  background-color: #F5F2F2;
+}
+
+.app-main {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-shadow: 0 8px 4px -4px #777;
+  padding: 1vw;
+  height: stretch;
+  width: stretch;
+
+  display: grid;
+
+  grid-gap: 4vw;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.app-todo-list > h2, .app-done-list > h2 {
+  text-align: center;
+}
+
+@media (max-device-width: 320px) {
+  .app-wrapper {
+    padding: 0;
+  }
+
+  .app-main {
+    border: 0;
+    padding: 0 4vw;
+
+    grid-gap: 2vh;
+    grid-template-columns: 1fr;
+  }
+}
