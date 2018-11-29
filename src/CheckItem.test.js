@@ -20,7 +20,8 @@ import CheckItem from './CheckItem';
 describe('CheckItem.test.js', () => {
 
   describe('HTML Semantics, SEO & Accessibility tests', () => {
-    // TODO
+    // TODO 
+    //verificar os elementos dentro dele existem
   });
 
   describe('Behavior tests', () => {
@@ -40,13 +41,15 @@ describe('CheckItem.test.js', () => {
         />
       );
 
-      mountedComponent.find('.check-item-wrapper').simulate('click');
+      mountedComponent.find('.check-item-text').simulate('click');
       expect(testData.mockFunc).toBeCalledWith(testData.id);
     });
 
   });
 
   describe('Style tests', () => {
+    // verificar se quando um elemento nao esta checado ele nao esta riscado
+    // verificar se quando um elemento esta checado ele esta riscado
     // TODO
   });
 

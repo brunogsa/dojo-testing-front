@@ -54,11 +54,21 @@ class CheckList extends PureComponent {
   }
 
   handleInputText(text) {
-    // TODO
+    this.setState({ text });
   }
 
   handleKeyPress(keyCode) {
-    // TODO
+    const enter = 13;
+    if (keyCode === enter) {
+      const newItem = {};
+      newItem.id = generateId();
+      newItem.text = this.state.text;
+      newItem.isChecked = false;
+      this.props.onNewItem(newItem);
+      this.setState({
+        text: '',
+      })
+    }
   }
 
   render() {
@@ -77,7 +87,19 @@ class CheckList extends PureComponent {
         />
 
         <div className="checklist-items-wrapper">
-          TODO: Items will be here
+          {this.props.items.map(item => (
+            <CheckItem
+            id={item.id}
+            text={item.text}
+            isChecked={item.isChecked}
+            onClick={() => {
+              if(item.isChecked)
+                this.props.onUncheck(item.id);
+              else
+                this.props.onCheck(item.id);
+            }}   
+            />
+            ))}
         </div>
 
       </div>
