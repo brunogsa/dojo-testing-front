@@ -40,6 +40,8 @@ class App extends PureComponent {
 
   handleItemCheck(itemId) {
     const itemToMove = this.state.uncheckedItems.find(item => item.id === itemId);
+    if (!itemToMove) return;
+
     itemToMove.isChecked = true;
 
     const newUncheckedItems = this.state.uncheckedItems.filter(item => item.id !== itemId);
@@ -58,6 +60,8 @@ class App extends PureComponent {
 
   handleItemUncheck(itemId) {
     const itemToMove = this.state.checkedItems.find(item => item.id === itemId);
+    if (!itemToMove) return;
+
     itemToMove.isChecked = false;
 
     const newCheckedItems = this.state.checkedItems.filter(item => item.id !== itemId);
